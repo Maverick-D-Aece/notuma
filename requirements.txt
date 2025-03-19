@@ -1,0 +1,24 @@
+# Core web framework
+flask==3.1.0
+# NLP processing
+nltk==3.8.1
+# API requests
+requests==2.31.0
+# Environment variable management
+python-dotenv==1.0.0
+# Image generation (Stable Diffusion)
+diffusers==0.24.0
+torch==2.6.0
+accelerate==0.25.0
+# Image processing
+pillow==10.2.0
+# Pollinations.ai API client
+pollinations==2.4
+# ebooklib for ebook processing
+ebooklib==0.17.1
+# Microsoft Word document processing
+python-docx
+# Web scraping
+beautifulsoup4
+# Hugging Face Hub - pinned to version compatible with diffusers 0.24.0
+huggingface_hub==0.19.4
