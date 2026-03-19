@@ -11,3 +11,11 @@ python-jose[cryptography]
 passlib[bcrypt]
 celery
 redis
+python-docx
+ebooklib
+beautifulsoup4
+nltk
+lxml
+nltk
+lxml
+numpy
