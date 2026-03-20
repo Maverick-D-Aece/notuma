@@ -3,6 +3,10 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
+interface UploadResponse {
+    chapters: Array<{ id: string }>;
+}
+
 export default function IngestPage() {
     const router = useRouter()
     const [file, setFile] = useState<File | null>(null)
@@ -35,12 +39,13 @@ export default function IngestPage() {
                 throw new Error('Upload failed')
             }
 
-            const data = await response.json()
+            const data: UploadResponse = await response.json()
             if (data.chapters && data.chapters.length > 0) {
                 router.push(`/narrative/${data.chapters[0].id}`)
             }
-        } catch (err: any) {
-            setError(err.message || 'Something went wrong')
+        } catch (err) {
+            const message = err instanceof Error ? err.message : 'Something went wrong';
+            setError(message)
         } finally {
             setUploading(false)
         }

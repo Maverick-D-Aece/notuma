@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, JSON, Text, Table
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
-from .database import Base
+from backend.app.database import Base
 import uuid
 
 def generate_uuid():
@@ -111,3 +111,18 @@ class StyleProfile(Base):
     features = Column(JSON) # Extracted style features
 
     projects = relationship("Project", back_populates="style")
+
+class UsageLog(Base):
+    __tablename__ = "usage_logs"
+    id = Column(String, primary_key=True, default=generate_uuid)
+    user_id = Column(String, ForeignKey("users.id"), nullable=True)
+    project_id = Column(String, ForeignKey("projects.id"), nullable=True)
+    service = Column(String) # e.g. "image_generation", "nlp_analysis"
+    provider = Column(String, nullable=True) # e.g. "pollinations", "openai", "nanobanana"
+    metric = Column(String) # e.g. "images", "tokens"
+    amount = Column(Integer, default=1)
+    cost = Column(JSON, nullable=True) # Any cost metadata
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    user = relationship("User")
+    project = relationship("Project")
