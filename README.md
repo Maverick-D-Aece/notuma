@@ -1,4 +1,4 @@
-# <img src="frontend/public/logo.png" width="48" height="48" valign="middle"> NoTuMa: Novel To Manga Converter
+# <img src="./frontend/public/logo.png" width="48" height="48" valign="middle"> NoTuMa: Novel To Manga Converter
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Next.js](https://img.shields.io/badge/Frontend-Next.js%2015-black?style=flat&logo=next.js)](https://nextjs.org/)
@@ -13,7 +13,7 @@
 ## ✨ Key Features
 
 ### 🚀 Advanced Ingestion & Analysis
-![Analysis Showcase](frontend/public/showcase_analysis.png)
+![Analysis Showcase](./frontend/public/showcase_analysis.png)
 - **Format Support**: Seamlessly ingest EPUB, DOCX, and TXT files.
 - **Narrative Intelligence**: Automated extraction of chapters, scenes, and character profiles using LLM-driven analysis.
 - **Dialogue Mapping**: Precise association of dialogue to characters and specific narrative beats.
@@ -25,10 +25,10 @@
 - **Visual Consistency**: LoRA and IP-Adapter integration for persistent character appearance across panels.
 
 ### 🖌️ Professional Composition Engine
-![Composition Showcase](frontend/public/showcase_composition.png)
+![Composition Showcase](./frontend/public/showcase_composition.png)
 - **Interactive Canvas**: High-performance editor built with Fabric.js for fluid panel arrangement and bubble placement.
 - **Manga Aesthetics**: Native support for diagonal panels, overlapping elements, and professional manga textures.
-- **Manhwa Ready**: specialized support for long-strip vertical layouts with seamless narrative flow.
+- **Manhwa Ready**: ![Manhwa Showcase](./frontend/public/showcase_manhwa.png) specialized support for long-strip vertical layouts with seamless narrative flow.
 
 ### 📦 Production-Ready Export
 - **High Resolution**: Export in crystal-clear PNG and JPEG formats.
