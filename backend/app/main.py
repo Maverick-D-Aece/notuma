@@ -1,6 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from backend.app.api.v1.api import api_router
+from backend.app.utils.monitoring import setup_monitoring
+from backend.app.utils.rate_limit import setup_rate_limiting
+
+# Initialize monitoring
+setup_monitoring()
 
 app = FastAPI(
     title="NoTuMa API",
@@ -16,6 +21,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Initialize rate limiting
+setup_rate_limiting(app)
 
 app.include_router(api_router, prefix="/api/v1")
 

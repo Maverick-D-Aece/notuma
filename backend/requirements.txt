@@ -1,3 +1,4 @@
+requests
 fastapi
 uvicorn[standard]
 pydantic
@@ -20,3 +21,8 @@ nltk
 lxml
 numpy
 Pillow
+sentry-sdk[fastapi]
+slowapi
+# Testing dependencies
+pytest
+httpx
