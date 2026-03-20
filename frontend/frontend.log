@@ -1,0 +1,39 @@
+
+> frontend@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.0 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.2:3000
+✓ Ready in 520ms
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+
+○ Compiling /composition/[pageId] ...
+ GET /composition/test-page 200 in 6.7s (next.js: 6.3s, application-code: 336ms)
+[browser] Failed to load layout: TypeError: Failed to fetch
+    at CompositionEditor.useEffect.loadLayout (app/composition/[pageId]/page.tsx:43:31)
+    at CompositionEditor.useEffect (app/composition/[pageId]/page.tsx:53:5)
+  41 |     const loadLayout = async () => {
+  42 |         try {
+> 43 |             const res = await fetch(`http://localhost:8000/api/v1/composition/page/${pageI...
+     |                               ^
+  44 |             const data = await res.json();
+  45 |             if (data.layout && Object.keys(data.layout).length > 0) {
+  46 |                 await fabricCanvas.loadFromJSON(data.layout); (app/composition/[pageId]/page.tsx:50:21)
+[browser] Failed to load layout: TypeError: Failed to fetch
+    at CompositionEditor.useEffect.loadLayout (app/composition/[pageId]/page.tsx:43:31)
+    at CompositionEditor.useEffect (app/composition/[pageId]/page.tsx:53:5)
+  41 |     const loadLayout = async () => {
+  42 |         try {
+> 43 |             const res = await fetch(`http://localhost:8000/api/v1/composition/page/${pageI...
+     |                               ^
+  44 |             const data = await res.json();
+  45 |             if (data.layout && Object.keys(data.layout).length > 0) {
+  46 |                 await fabricCanvas.loadFromJSON(data.layout); (app/composition/[pageId]/page.tsx:50:21)
+ GET /composition/test-page 200 in 122ms (next.js: 23ms, application-code: 99ms)
+ GET /composition/test-page 200 in 110ms (next.js: 20ms, application-code: 90ms)
+ GET /composition/test-page 200 in 93ms (next.js: 20ms, application-code: 73ms)
