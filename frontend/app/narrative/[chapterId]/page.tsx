@@ -3,10 +3,33 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 
+interface Dialogue {
+    character_name: string;
+    text: string;
+}
+
+interface Scene {
+    id: string;
+    text: string;
+    dialogue: Dialogue[];
+}
+
+interface Character {
+    id: string;
+    name: string;
+    traits: string[];
+}
+
+interface Chapter {
+    title: string;
+    scenes: Scene[];
+    characters: Character[];
+}
+
 export default function NarrativeEditor() {
     const params = useParams()
     const chapterId = params.chapterId
-    const [chapter, setChapter] = useState<any>(null)
+    const [chapter, setChapter] = useState<Chapter | null>(null)
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -35,7 +58,7 @@ export default function NarrativeEditor() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="md:col-span-2 space-y-6">
-                    {chapter?.scenes.map((scene: any, index: number) => (
+                    {chapter?.scenes.map((scene, index: number) => (
                         <div key={scene.id} className="bg-white border rounded-lg shadow-sm p-4 space-y-4">
                             <div className="text-sm font-medium text-gray-500 uppercase tracking-wider border-b pb-2">Scene {index + 1}</div>
                             <textarea
@@ -45,7 +68,7 @@ export default function NarrativeEditor() {
                             />
                             <div className="space-y-2">
                                 <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-400">Dialogue Mapping</h4>
-                                {scene.dialogue.map((d: any, i: number) => (
+                                {scene.dialogue.map((d, i: number) => (
                                     <div key={i} className="flex gap-2 items-center">
                                         <span className="shrink-0 px-2 py-1 bg-gray-100 text-gray-600 text-[10px] font-bold rounded uppercase">{d.character_name || 'Unknown'}</span>
                                         <input
@@ -63,7 +86,7 @@ export default function NarrativeEditor() {
                     <div className="bg-white border rounded-lg shadow-sm p-4">
                         <h3 className="text-lg font-bold mb-4 border-b pb-2">Characters Extracted</h3>
                         <div className="h-[400px] overflow-y-auto space-y-4 pr-2">
-                            {chapter?.characters.map((char: any) => (
+                            {chapter?.characters.map((char) => (
                                 <div key={char.id || char.name} className="p-3 bg-gray-50 border rounded-lg space-y-2">
                                     <div className="font-semibold text-sm">{char.name}</div>
                                     <div className="flex flex-wrap gap-1">

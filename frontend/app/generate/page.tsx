@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Sparkles, Image as ImageIcon, Loader2 } from "lucide-react";
+import Image from 'next/image';
 
 export default function GeneratePage() {
   const [prompt, setPrompt] = useState('');
@@ -109,7 +110,7 @@ export default function GeneratePage() {
           <div className="md:col-span-2">
             <div className="h-full min-h-[400px] border-2 border-dashed border-zinc-200 dark:border-zinc-800 rounded-2xl flex items-center justify-center bg-zinc-50/50 dark:bg-zinc-900/50 overflow-hidden relative">
               {imageUrl ? (
-                <img src={imageUrl} alt="Generated Panel" className="w-full h-full object-contain" />
+                <Image src={imageUrl} alt="Generated Panel" width={1024} height={1024} className="w-full h-full object-contain" />
               ) : (
                 <div className="text-center p-8">
                   <div className="w-16 h-16 bg-zinc-100 dark:bg-zinc-800 rounded-full flex items-center justify-center mx-auto mb-4">

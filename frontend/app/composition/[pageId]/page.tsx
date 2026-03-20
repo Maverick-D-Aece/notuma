@@ -7,13 +7,11 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import {
   Square,
-  Circle,
   MessageSquare,
   ChevronRight,
   Download,
   Layout,
   Type,
-  Maximize,
   Grid,
   Zap,
   Layers

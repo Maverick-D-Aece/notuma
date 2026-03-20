@@ -5,7 +5,7 @@ import { PrismaPg } from "@prisma/adapter-pg"
 import { Pool } from "pg"
 
 const pool = new Pool({ connectionString: process.env.DATABASE_URL })
-// @ts-ignore
+// @ts-expect-error: PrismaPg adapter type mismatch with NextAuth adapter
 const adapter = new PrismaPg(pool)
 const prisma = new PrismaClient({ adapter })
 
