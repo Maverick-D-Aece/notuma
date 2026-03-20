@@ -19,3 +19,4 @@ lxml
 nltk
 lxml
 numpy
+Pillow
