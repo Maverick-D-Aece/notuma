@@ -11,8 +11,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends     build-essen
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+# Create the backend directory
+RUN mkdir -p /app/backend
+
+# Copy everything into /app/backend
+COPY . /app/backend/
 
 EXPOSE 8000
 
+# uvicorn expects the module name. With PYTHONPATH=/app, 'backend.app.main:app' should work.
 CMD ["uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8000"]
